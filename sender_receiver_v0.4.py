@@ -46,8 +46,8 @@ while not v.mode.name=='GUIDED' and not api.exit:  #Wait until mode has changed
     time.sleep(1)
 
 print "Set Vehicle.armed=True (currently: %s)" % v.armed 
-v.armed = True
-v.flush()
+# v.armed = True
+# v.flush()
 
 # open the serial port between odroid and zibgee
 myserial = serial.Serial('/dev/ttyUSB1', 115200, timeout=1.5)  # read timeout is 1.5s
@@ -55,7 +55,8 @@ print myserial.portstr
 			
 data=''
 if myserial.isOpen():	
-	while not v.armed and not api.exit:
+	# while not v.armed and not api.exit:
+	while not api.exit:
 		print " Waiting for arming..."
 		
 		# receive data
